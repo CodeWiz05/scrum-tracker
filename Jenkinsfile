@@ -2,11 +2,7 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS-18' // Use the same name you set in Step 2
-    }
-
-    stages {
+    stages {    
         stage('Build Backend') {
             steps {
                 dir('backend') {
@@ -64,12 +60,6 @@ pipeline {
                 
                 echo 'Deployment complete.'
             }
-        }
-    }
-    
-    post {
-        always {
-            cleanWs()
         }
     }
 }
