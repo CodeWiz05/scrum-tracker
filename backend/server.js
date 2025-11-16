@@ -27,7 +27,7 @@ app.post("/api/tasks", (req, res) => {
   const newTask = { id: Date.now(), title, status: "To Do" };
   tasks.push(newTask);
   writeTasks(tasks);
-  res.status(201).json(tasks);
+  res.status(201).json(newTask);
 });
 
 app.put("/api/tasks/:id", (req, res) => {
@@ -41,7 +41,7 @@ app.put("/api/tasks/:id", (req, res) => {
 
   tasks[taskIndex].status = status;
   writeTasks(tasks);
-  res.json(tasks);
+  res.json(tasks[taskIndex]);
 });
 
 app.listen(PORT, () =>
