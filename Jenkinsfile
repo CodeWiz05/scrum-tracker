@@ -1,6 +1,11 @@
 // Jenkinsfile
 pipeline {
     agent any
+    
+    tools {
+        // Use the exact name you created in step 4
+        nodejs 'My-NodeJS' 
+    }
 
     stages {    
         stage('Build Backend') {
