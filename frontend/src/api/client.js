@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_BASE || "http://localhost:5000"; // change if backend gives another port
+const BASE_URL = import.meta.env.VITE_API_BASE || "http://localhost:3000"; // change if backend gives another port
 
 export async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {
