@@ -60,8 +60,9 @@ pipeline {
                     echo "Stopping any old server..."
                     taskkill /F /IM node.exe 2>nul || echo "Server not running."
 
-                    echo "Starting new server detached..."
-                    wscript.exe "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\scrum-master_main\\backend\\start_server.vbs"
+                    echo "Starting new server in its own window..."
+                    cd backend
+                    start "Scrum Backend Server" node server.js
                 '''
                 
                 echo 'Deployment complete.'
