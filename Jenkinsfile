@@ -61,7 +61,7 @@ pipeline {
                     taskkill /F /IM node.exe 2>nul || echo "Server not running."
 
                     echo "Starting new server detached..."
-                    wscript.exe "C:\ProgramData\Jenkins\.jenkins\workspace\scrum-master_main\backend\start_server.vbs"
+                    wscript.exe "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\scrum-master_main\\backend\\start_server.vbs"
                 '''
                 
                 echo 'Deployment complete.'
