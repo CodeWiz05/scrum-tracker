@@ -56,11 +56,12 @@ pipeline {
                     echo "Copying frontend files..."
                     xcopy frontend\\dist C:\\inetpub\\wwwroot /E /Y /I
                     
-                    echo "Restarting backend server..."
-                    taskkill /F /IM node.exe /FI "MODULES eq server.js" 2>nul || echo "Server not running, starting new one..."
                     
-                    cd backend
-                    START /B "backend-server" node server.js > app.log 2>&1
+                    echo "Stopping any old server..."
+                    taskkill /F /IM node.exe 2>nul || echo "Server not running."
+
+                    echo "Starting new server detached..."
+                    wscript.exe "C:\ProgramData\Jenkins\.jenkins\workspace\scrum-master_main\backend\start_server.vbs"
                 '''
                 
                 echo 'Deployment complete.'
