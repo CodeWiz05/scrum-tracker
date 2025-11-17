@@ -24,7 +24,7 @@ app.get("/api/tasks", (req, res) => {
 app.post("/api/tasks", (req, res) => {
   const { title } = req.body;
   const tasks = readTasks();
-  const newTask = { id: Date.now(), title, status: "To Do" };
+  const newTask = { id: Date.now(), title, status: "todo" };
   tasks.push(newTask);
   writeTasks(tasks);
   res.status(201).json(tasks);
