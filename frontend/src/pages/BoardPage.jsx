@@ -156,8 +156,8 @@ export default function BoardPage() {
     const t = title?.trim();
     if (!t) return;
     try {
-      const created = await createTask(t); // expects { id, title, status: "todo" }
-      setTasks((prev) => [...prev, created]);
+      const updatedTasksList = await createTask(t); // expects { id, title, status: "todo" }
+      setTasks(updatedTasksList);
     } catch (e) {
       console.warn("POST /api/tasks failed, adding locally:", e?.message || e);
       const created = { id: Date.now(), title: t, status: "todo" };
@@ -169,7 +169,7 @@ export default function BoardPage() {
    const handleMove = async (id, nextStatus) => {
     try {
       const updated = await updateTask(id, nextStatus); 
-      setTasks(prev => prev.map(t => (t.id === id ? updated : t)));
+      setTasks(updatedTasksList);
     } catch {
       // fallback (local update so card moves even without backend)
       setTasks(prev =>
