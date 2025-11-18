@@ -37,11 +37,16 @@
   {
     "id": 1763364261179,
     "title": "hi",
-    "status": "todo"
+    "status": "inprogress"
   },
   {
     "id": 1763364267747,
     "title": "hiiii",
     "status": "todo"
+  },
+  {
+    "id": 1763364498102,
+    "title": "hih",
+    "status": "done"
   }
 ]
